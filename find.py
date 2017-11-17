@@ -26,7 +26,7 @@ def find_albums(library_path, search_albums):
             print('No album match found for "%s - %s" (closest option was "%s - %s"). Skipping.' % (artist, album, closest_artist, closest_album), file=sys.stderr)
             continue
 
-        for file in os.listdir(os.path.join(library_path, closest_artist, closest_album)):
+        for file in sorted(os.listdir(os.path.join(library_path, closest_artist, closest_album))):
             print(os.path.join(library_path, closest_artist, closest_album, file))
 
 def sanitize_name(name):
